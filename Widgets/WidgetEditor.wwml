@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+ WidgetBender Webwidgets RAD tool
+ Copyright (C) 2007 FreeCode AS, Egil Moeller <redhog@redhog.org>
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+<w:wwml
+ xmlns="http://www.w3.org/TR/REC-html40"
+ xmlns:w="http://freecode.no/xml/namespaces/wwml-1.0"
+ xmlns:html="http://www.w3.org/TR/REC-html40"
+ using="WidgetBender.Widgets"
+ bind="WidgetBender.Widgets.WidgetEditorCallbacks"
+ >
+ <w:Html
+  id="WidgetEditor"
+  top_level="div">
+  <w:Html id="WidgetInfoPanel" top_level="div">
+   <w:Fieldgroup id="WidgetGroup">
+    <w:Field id="Widget" Label=":Html:Widget"><w:Html id="Field" field_name="widget"/></w:Field>
+    <w:Field id="Location" Label=":Html:Location"><w:Html id="Field" field_name="location"/></w:Field>
+    <w:Field id="PrimaryName" Label=":Html:Primary name"><w:StringInput id="Field" field_name="primary_name"/></w:Field>
+    <w:Field id="Attributes" Label=":Html:Attributes">
+     <w:Table id="Field" rows_per_page=":integer:20" field_name="attributes">
+      <w:dict id="functions" delete="Delete" edit="Edit" />
+      <w:dict id="group_functions" add="Add" />
+      <w:odict id="columns">
+       <w:string id="name">Name</w:string>
+       <w:string id="value">Value</w:string>
+      </w:odict>
+     </w:Table>
+    </w:Field>
+
+    <w:Field id="InheritedAttributes" Label=":Html:Inherited attributes">
+     <w:Hide id="Field">
+      <w:Table id="child" rows_per_page=":integer:20" field_name="inherited_attributes">
+       <w:odict id="columns">
+	<w:string id="name">Name</w:string>
+	<w:string id="value">Value</w:string>
+       </w:odict>
+      </w:Table>
+     </w:Hide>
+    </w:Field>
+
+   </w:Fieldgroup>
+
+   <w:Fieldgroup id="ActionsGroup">
+    <w:Field id="Actions" Label=":Html:Actions">
+     <w:Html id="Field">
+      <w:Button id="Delete" title="Delete widget" />
+      <w:Button id="Move" title="Move widget" />
+      <w:Button id="InsertBefore" title="Insert widget before" />
+      <w:Button id="InsertAfter" title="Insert widget after" />
+     </w:Html>
+    </w:Field>
+   </w:Fieldgroup>
+
+   <w:Button id="Update" title="Update" />
+  </w:Html>
+
+  <w:Html id="WidgetEditor" top_level="div">
+   <w:WidgetSelector.WidgetSelector id="WidgetEditor">
+    <w:List id="WidgetTree">
+     <w:FileEditorList id="testwidget" />
+    </w:List>
+   </w:WidgetSelector.WidgetSelector>
+  </w:Html>
+
+ </w:Html>
+</w:wwml>

@@ -1,0 +1,18 @@
+.WidgetBender-UI-MainWindow-Body-LogIn-Application > .page {
+ position: absolute;
+ left: 0;
+ right: 0;
+ top: 2em;
+ bottom: 0;
+ border: 2px: green;
+}
+
+.WidgetBender-Widgets-WidgetEditor-WidgetEditor {
+ display: table;
+}
+
+.WidgetBender-Widgets-WidgetEditor-WidgetEditor > *{
+ display: table-cell;
+ border-collapse: collapse;
+ border: 2px solid #bfbfff;
+}
