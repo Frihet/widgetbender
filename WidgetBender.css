@@ -15,4 +15,11 @@
  display: table-cell;
  border-collapse: collapse;
  border: 2px solid #bfbfff;
+ padding: 5pt;
+ vertical-align: top;
+}
+
+.WidgetBender-Widgets-WidgetEditor-WidgetEditor-WidgetInfoPanel-WidgetGroup-Widget > .field,
+.WidgetBender-Widgets-WidgetEditor-WidgetEditor-WidgetInfoPanel-WidgetGroup-Location > .field {
+ font-size: 8pt;
 }

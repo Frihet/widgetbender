@@ -21,15 +21,13 @@
  xmlns="http://www.w3.org/TR/REC-html40"
  xmlns:w="http://freecode.no/xml/namespaces/wwml-1.0"
  xmlns:html="http://www.w3.org/TR/REC-html40"
- using="WidgetBender.UI.Designer WidgetBender.Widgets"
- bind="WidgetBender.Callbacks.Designer"
+ using="WidgetBender.Widgets"
+ bind="WidgetBender.Widgets.ModuleInputCallbacks"
  >
- <w:Html
-  id="Designer"
-  title="Designer">
-
-  <w:WidgetEditor.WidgetClassSelector id="WidgetClassSelector" />
-  <w:WidgetEditor.WidgetEditor id="WidgetEditor" />
-
+ <w:Html id="ModuleInput">
+  <w:Hide id="Tree">
+   <w:ModuleTree.ModuleTree id="Child" />
+   <w:Hide.HideButton id="HideButton" />
+  </w:Hide>
  </w:Html>
 </w:wwml>

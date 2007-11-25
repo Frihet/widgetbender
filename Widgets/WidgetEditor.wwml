@@ -24,6 +24,13 @@
  using="WidgetBender.Widgets"
  bind="WidgetBender.Widgets.WidgetEditorCallbacks"
  >
+ <w:Dialog id="WidgetClassSelector">
+  <w:Html id="Head">Select a widget class</w:Html>
+  <w:Html id="Body">
+   <w:WidgetInput.WidgetInput id="WidgetInput" />
+  </w:Html>
+ </w:Dialog>
+
  <w:Html
   id="WidgetEditor"
   top_level="div">
@@ -45,7 +52,7 @@
 
     <w:Field id="InheritedAttributes" Label=":Html:Inherited attributes">
      <w:Hide id="Field">
-      <w:Table id="child" rows_per_page=":integer:20" field_name="inherited_attributes">
+      <w:Table id="Child" rows_per_page=":integer:20" field_name="inherited_attributes">
        <w:odict id="columns">
 	<w:string id="name">Name</w:string>
 	<w:string id="value">Value</w:string>
@@ -61,6 +68,7 @@
      <w:Html id="Field">
       <w:Button id="Delete" title="Delete widget" />
       <w:Button id="Move" title="Move widget" />
+      <w:Button id="InsertChild" title="Insert child widget" />
       <w:Button id="InsertBefore" title="Insert widget before" />
       <w:Button id="InsertAfter" title="Insert widget after" />
      </w:Html>
