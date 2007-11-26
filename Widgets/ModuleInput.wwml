@@ -22,7 +22,7 @@
  xmlns:w="http://freecode.no/xml/namespaces/wwml-1.0"
  xmlns:html="http://www.w3.org/TR/REC-html40"
  using="WidgetBender.Widgets"
- bind="WidgetBender.WidgetCallbacks.ModuleInput"
+ bind="WidgetBender.Widgets.Callbacks.ModuleInput"
  >
  <w:Html id="ModuleInput">
   <w:Hide id="Tree">
