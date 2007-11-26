@@ -19,7 +19,7 @@
  vertical-align: top;
 }
 
-.WidgetBender-Widgets-WidgetEditor-WidgetEditor-WidgetInfoPanel-WidgetGroup-Widget > .field,
-.WidgetBender-Widgets-WidgetEditor-WidgetEditor-WidgetInfoPanel-WidgetGroup-Location > .field {
+.WidgetBender-Widgets-WidgetEditor-WidgetEditor-WidgetInfoPanel-EditorPanels-EditAttributes-WidgetGroup-Widget > .field,
+.WidgetBender-Widgets-WidgetEditor-WidgetEditor-WidgetInfoPanel-EditorPanels-EditAttributes-WidgetGroup-Location > .field {
  font-size: 8pt;
 }

@@ -28,7 +28,6 @@
   id="Designer"
   title="Designer">
 
-  <w:WidgetEditor.WidgetClassSelector id="WidgetClassSelector" />
   <w:WidgetEditor.WidgetEditor id="WidgetEditor" />
 
  </w:Html>

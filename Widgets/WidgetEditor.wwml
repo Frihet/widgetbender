@@ -24,58 +24,45 @@
  using="WidgetBender.Widgets"
  bind="WidgetBender.Widgets.Callbacks.WidgetEditor"
  >
- <w:Dialog id="WidgetClassSelector">
-  <w:Html id="Head">Select a widget class</w:Html>
-  <w:Html id="Body">
-   <w:WidgetInput.WidgetInput id="WidgetInput" />
-  </w:Html>
- </w:Dialog>
-
  <w:Html
   id="WidgetEditor"
   top_level="div">
   <w:Html id="WidgetInfoPanel" top_level="div">
-   <w:Fieldgroup id="WidgetGroup">
-    <w:Field id="Widget" Label=":Html:Widget"><w:Html id="Field" field_name="widget"/></w:Field>
-    <w:Field id="Location" Label=":Html:Location"><w:Html id="Field" field_name="location"/></w:Field>
-    <w:Field id="PrimaryName" Label=":Html:Primary name"><w:StringInput id="Field" field_name="primary_name"/></w:Field>
-    <w:Field id="Attributes" Label=":Html:Attributes">
-     <w:Table id="Field" rows_per_page=":integer:20" field_name="attributes">
-      <w:dict id="functions" delete="Delete" edit="Edit" />
-      <w:dict id="group_functions" add="Add" />
-      <w:odict id="columns">
-       <w:string id="name">Name</w:string>
-       <w:string id="value">Value</w:string>
-      </w:odict>
-     </w:Table>
-    </w:Field>
+   <w:TabbedView id="EditorPanels" page=":path:EditAttributes">
+    <w:Html id="Insert" title="Insert">
+     <w:WidgetInput.WidgetInput id="WidgetInput" />
+    </w:Html>
+    <w:Html id="EditAttributes" title="Edit attributes">
+     <w:Fieldgroup id="WidgetGroup">
+      <w:Field id="Widget" Label=":Html:Widget"><w:Html id="Field" field_name="widget"/></w:Field>
+      <w:Field id="Location" Label=":Html:Location"><w:Html id="Field" field_name="location"/></w:Field>
+      <w:Field id="PrimaryName" Label=":Html:Primary name"><w:StringInput id="Field" field_name="primary_name"/></w:Field>
+      <w:Field id="Attributes" Label=":Html:Attributes">
+       <w:Table id="Field" rows_per_page=":integer:20" field_name="attributes">
+	<w:dict id="functions" delete="Delete" edit="Edit" />
+	<w:dict id="group_functions" add="Add" />
+	<w:odict id="columns">
+	 <w:string id="name">Name</w:string>
+	 <w:string id="value">Value</w:string>
+	</w:odict>
+       </w:Table>
+      </w:Field>
 
-    <w:Field id="InheritedAttributes" Label=":Html:Inherited attributes">
-     <w:Hide id="Field">
-      <w:Table id="Child" rows_per_page=":integer:20" field_name="inherited_attributes">
-       <w:odict id="columns">
-	<w:string id="name">Name</w:string>
-	<w:string id="value">Value</w:string>
-       </w:odict>
-      </w:Table>
-     </w:Hide>
-    </w:Field>
+      <w:Field id="InheritedAttributes" Label=":Html:Inherited attributes">
+       <w:Hide id="Field">
+	<w:Table id="Child" rows_per_page=":integer:20" field_name="inherited_attributes">
+	 <w:odict id="columns">
+	  <w:string id="name">Name</w:string>
+	  <w:string id="value">Value</w:string>
+	 </w:odict>
+	</w:Table>
+       </w:Hide>
+      </w:Field>
 
-   </w:Fieldgroup>
-
-   <w:Fieldgroup id="ActionsGroup">
-    <w:Field id="Actions" Label=":Html:Actions">
-     <w:Html id="Field">
-      <w:Button id="Delete" title="Delete widget" />
-      <w:Button id="Move" title="Move widget" />
-      <w:Button id="InsertChild" title="Insert child widget" />
-      <w:Button id="InsertBefore" title="Insert widget before" />
-      <w:Button id="InsertAfter" title="Insert widget after" />
-     </w:Html>
-    </w:Field>
-   </w:Fieldgroup>
-
-   <w:Button id="Update" title="Update" />
+     </w:Fieldgroup>
+     <w:Button id="Update" title="Update" />
+    </w:Html>
+   </w:TabbedView>
   </w:Html>
 
   <w:Html id="WidgetEditor" top_level="div">
