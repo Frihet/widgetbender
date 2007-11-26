@@ -20,7 +20,7 @@ class WidgetTree(Webwidgets.Tree):
                              instance.cache.clear()
                              if instance.value is not None:
                                  for name, value in instance.value.__dict__.iteritems():
-                                     if issubclass(value, Webwidgets.Widget):
+                                     if isinstance(value, type) and issubclass(value, Webwidgets.Widget):
                                          instance.cache[name] = owner(
                                              instance.tree, instance, value)
                              instance.cache.order.sort()

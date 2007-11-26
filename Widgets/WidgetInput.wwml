@@ -25,7 +25,9 @@
  bind="WidgetBender.Widgets.WidgetInputCallbacks"
  >
  <w:Fieldgroup id="WidgetInput">
-  <w:Field id="Module" Label=":Html:Module" Field=":ModuleInput.ModuleInput:" />
+  <w:Field id="Module" Label=":Html:Module">
+   <w:ModuleInput.ModuleInput id="Field" />
+  </w:Field>
   <w:Field id="Widget" Label=":Html:Widget">
    <w:Hide id="Field">
     <w:WidgetTree.WidgetTree id="Child" />
