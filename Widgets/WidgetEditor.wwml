@@ -22,7 +22,7 @@
  xmlns:w="http://freecode.no/xml/namespaces/wwml-1.0"
  xmlns:html="http://www.w3.org/TR/REC-html40"
  using="WidgetBender.Widgets"
- bind="WidgetBender.Widgets.WidgetEditorCallbacks"
+ bind="WidgetBender.WidgetCallbacks.WidgetEditor"
  >
  <w:Dialog id="WidgetClassSelector">
   <w:Html id="Head">Select a widget class</w:Html>

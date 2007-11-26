@@ -22,7 +22,7 @@
  xmlns:w="http://freecode.no/xml/namespaces/wwml-1.0"
  xmlns:html="http://www.w3.org/TR/REC-html40"
  using="WidgetBender.Widgets"
- bind="WidgetBender.Widgets.WidgetInputCallbacks"
+ bind="WidgetBender.WidgetCallbacks.WidgetInput"
  >
  <w:Fieldgroup id="WidgetInput">
   <w:Field id="Module" Label=":Html:Module">
