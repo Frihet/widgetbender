@@ -28,6 +28,9 @@
   id="WidgetEditor"
   top_level="div">
   <w:Html id="WidgetInfoPanel" top_level="div">
+   <w:Fieldgroup id="WidgetInfoGroup">
+    <w:Field id="Location" Label=":Html:Location"><w:Html id="Field" field_name="location"/></w:Field>
+   </w:Fieldgroup>
    <w:TabbedView id="EditorPanels" page=":path:EditAttributes">
     <w:Html id="Insert" title="Insert">
      <w:WidgetInput.WidgetInput id="WidgetInput" />
@@ -35,7 +38,6 @@
     <w:Html id="EditAttributes" title="Edit attributes">
      <w:Fieldgroup id="WidgetGroup">
       <w:Field id="Widget" Label=":Html:Widget"><w:Html id="Field" field_name="widget"/></w:Field>
-      <w:Field id="Location" Label=":Html:Location"><w:Html id="Field" field_name="location"/></w:Field>
       <w:Field id="PrimaryName" Label=":Html:Primary name"><w:StringInput id="Field" field_name="primary_name"/></w:Field>
       <w:Field id="Attributes" Label=":Html:Attributes">
        <w:Table id="Field" rows_per_page=":integer:20" field_name="attributes">
