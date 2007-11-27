@@ -17,7 +17,7 @@ class WidgetEditor(object):
             fields['widget'].html += '.' + widget_cls.ww_widget_path
         fields['widget'].html += '.' + widget_cls.__name__
         fields['widget'].html = fields['widget'].html.replace('.', ' . ')
-        fields['location'].html = ' - '.join(widget.parent.path)
+        fields['location'].html = ' - '.join(widget.path)
         fields['primary_name'].value = widget.name
 
         fields['attributes'].rows[:] = []
