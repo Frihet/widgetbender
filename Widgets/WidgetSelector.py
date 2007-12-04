@@ -34,15 +34,21 @@ class WidgetSelector(Webwidgets.ActionInput, Webwidgets.List):
     
     def draw(self, output_options):
         # FIXME: Handle another draw_wrapper already in output_options in some way (wrap it!)
-        output_options = Webwidgets.Utils.subclass_dict(output_options,
-                                                        {'draw_wrapper': self.draw_wrapper})
+        output_options = Webwidgets.Utils.subclass_dict(
+            output_options,
+            {'internal': Webwidgets.Utils.subclass_dict(output_options.get('internal', {}),
+                                                        {'draw_wrapper': self.draw_wrapper})})
         self.register_styles(output_options)
         Webwidgets.ActionInput.draw(self, output_options)
         return Webwidgets.List.draw(self, output_options)
 
     def draw_wrapper(self, parent, path, child, visible, result, output_options, invisible_as_empty):
         return """<div class="%(html_class)s">
-                   <button class="%(html_class)s" type="submit" name="%(editor_id)s" value="%(child_id)s">Edit</button>
+                   <button
+                    class="%(html_class)s"
+                    type="submit"
+                    name="%(editor_id)s"
+                    value="%(child_id)s">Edit</button>
                    %(result)s
                   </div>""" % {
             'html_class': self.html_class,
