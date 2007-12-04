@@ -69,6 +69,13 @@
 
   <w:Html id="WidgetEditor" top_level="div">
    <w:WidgetSelector.WidgetSelector id="WidgetEditor">
+    <w:odict id="functions">
+     <w:string id="remove">Remove</w:string>
+     <w:string id="details">View details</w:string>
+     <w:string id="insert-before">Insert before</w:string>
+     <w:string id="insert-within">Insert within</w:string>
+     <w:string id="insert-after">Insert after</w:string>
+    </w:odict>
     <w:List id="WidgetTree">
      <w:FileEditorList id="testwidget" />
     </w:List>

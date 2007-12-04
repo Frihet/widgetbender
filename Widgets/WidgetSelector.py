@@ -21,18 +21,15 @@
 
 import Webwidgets, os.path, StringIO, cgi
 
-file = open(os.path.join(os.path.dirname(__file__),
-                         'WidgetSelector.css'))
-widget_selector_style = file.read()
-file.close()
-
-class WidgetSelector(Webwidgets.ActionInput, Webwidgets.List):
-    widget_style = {Webwidgets.Constants.FINAL_OUTPUT: widget_selector_style,
-                   'Content-type': 'text/css',
-                   'Cache-Control': 'public; max-age=3600',
-                   }
+class WidgetSelector(Webwidgets.ActionInput, Webwidgets.List, Webwidgets.DirectoryServer):
+    functions = {'select': "Select"}
     
     def draw(self, output_options):
+        self.register_style_link(self.calculate_url(
+            {'widget_class': 'WidgetBender.Widgets.WidgetSelector.WidgetSelector',
+             'location': ['WidgetSelector.css']},
+            {}))
+
         # FIXME: Handle another draw_wrapper already in output_options in some way (wrap it!)
         output_options = Webwidgets.Utils.subclass_dict(
             output_options,
@@ -43,20 +40,28 @@ class WidgetSelector(Webwidgets.ActionInput, Webwidgets.List):
         return Webwidgets.List.draw(self, output_options)
 
     def draw_wrapper(self, parent, path, child, visible, result, output_options, invisible_as_empty):
+        info = {'html_class': self.html_class,
+                'editor_id': Webwidgets.Utils.path_to_id(self.path),
+                'child_id': Webwidgets.Utils.path_to_id(child.path),
+                'result': result
+                }
+
+        buttons = ["""<button
+                       class="%(function)s %(html_class)s"
+                       type="submit"
+                       name="%(editor_id)s"
+                       value="%(function)s:%(child_id)s">%(title)s</button>""" %
+                   Webwidgets.Utils.subclass_dict(info, {'function':name, 'title':title})
+                   for name, title in self.functions.iteritems()]
+        info['buttons'] = '\n'.join(buttons)
+
         return """<div class="%(html_class)s">
-                   <button
-                    class="%(html_class)s"
-                    type="submit"
-                    name="%(editor_id)s"
-                    value="%(child_id)s">Edit</button>
-                   %(result)s
-                  </div>""" % {
-            'html_class': self.html_class,
-            'editor_id': Webwidgets.Utils.path_to_id(self.path),
-            'child_id': Webwidgets.Utils.path_to_id(child.path),
-            'result': result
-            }
+                   <div class="functions">%(buttons)s</div>
+                   <div class="widget">%(result)s</div>
+                  </div>""" % info
 
     def field_input(self, path, string_value):
         if string_value != '':
-            self.notify('widget_selected', Webwidgets.Utils.id_to_path(string_value))
+            function, widget = string_value.split(':')
+            if function not in self.functions: return
+            self.notify('widget_selected', function, Webwidgets.Utils.id_to_path(widget))

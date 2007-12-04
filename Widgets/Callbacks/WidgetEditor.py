@@ -5,7 +5,7 @@ class WidgetEditor(object):
                            'ww_class_order_nr', 'ww_class_path', 'html_class',
                            'root', 'id', 'classid')
     
-    def widget_selected(self, path, widget_path):
+    def widget_selected(self, path, function, widget_path):
         fields = self.get_widgets_by_attribute('field_name')
 
         widget = self.window + widget_path
